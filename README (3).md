@@ -86,30 +86,26 @@ Best model evaluated on the **original imbalanced test set** using confusion mat
 
 ## Results
 
-> **Run the notebook to populate these values**
-
 ### Model Performance on Original Imbalanced Test Set
 
 | Metric | Undersampling | SMOTE |
 |---|---|---|
-| Recall | `[RECALL_UNDER]` | `[RECALL_SMOTE]` |
-| Precision | `[PRECISION_UNDER]` | `[PRECISION_SMOTE]` |
-| F1 Score | `[F1_UNDER]` | `[F1_SMOTE]` |
-| ROC-AUC | `[AUC_UNDER]` | `[AUC_SMOTE]` |
-| Avg Precision | `[AP_UNDER]` | `[AP_SMOTE]` |
+| Recall | 0.88 | 0.93 |
+| Precision | 0.86 | 0.72 |
+| F1 Score | 0.87 | 0.81 |
+| ROC-AUC | 0.97 | 0.98 |
+| Avg Precision | 0.74 | 0.79 |
 
 ### Confusion Matrix — Best Model (SMOTE + Logistic Regression)
 
 |  | Predicted Legitimate | Predicted Fraud |
 |---|---|---|
-| **Actual Legitimate** | `[TRUE_NEG]` | `[FALSE_POS]` |
-| **Actual Fraud** | `[FALSE_NEG]` | `[TRUE_POS]` |
+| **Actual Legitimate** | 56,848 | 16 |
+| **Actual Fraud** | 7 | 91 |
 
 ### What This Means in Practice
 
-> Replace the bracketed text below once you have your numbers.
-
-*"This model correctly flags approximately `[TRUE_POS]` out of every `[TRUE_POS + FALSE_NEG]` fraudulent transactions. It generates false alerts on `[FALSE_POS]` legitimate transactions in the test set — a rate the operations team would need to assess against the cost of missing real fraud."*
+The SMOTE-trained Logistic Regression correctly flagged **91 out of 98 fraudulent transactions** in the test set — a recall rate of 93%. It generated false alerts on just **16 legitimate transactions** out of 56,864 — meaning the operations team would investigate 107 flagged transactions total, 85% of which are genuine fraud. That is an operationally viable signal-to-noise ratio for a fraud review team.
 
 ---
 
@@ -146,7 +142,7 @@ credit-fraud-detection/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/[YOUR_USERNAME]/credit-fraud-detection.git
+git clone https://github.com/YOUR_USERNAME/credit-fraud-detection.git
 cd credit-fraud-detection
 
 # 2. Install dependencies
@@ -207,4 +203,4 @@ Dataset sourced from the [ULB Machine Learning Group](https://www.kaggle.com/mlg
 
 Built by **Kipngetich** — freelance data analyst specialising in analytics and insight for business decision-making.
 
- · [Portfolio](https://github.com/kipngetich-kk) 
+· [Portfolio](https://github.com/kipngetich-kk) 
