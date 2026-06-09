@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metric-card {
+  @apply bg-white rounded-lg border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
+.btn-primary {
+  @apply bg-navy-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-navy-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white text-navy-900 border border-slate-300 px-4 py-2 rounded-lg font-medium hover:bg-slate-50 transition-colors duration-200;
+}
+
+.severity-critical {
+  @apply bg-red-50 text-red-700 border-red-200;
+}
+
+.severity-high {
+  @apply bg-orange-50 text-orange-700 border-orange-200;
+}
+
+.severity-medium {
+  @apply bg-amber-50 text-amber-700 border-amber-200;
+}
+
+.severity-low {
+  @apply bg-slate-50 text-slate-700 border-slate-200;
+}
+
+.status-recovered {
+  @apply bg-emerald-50 text-emerald-700;
+}
+
+.status-at-risk {
+  @apply bg-amber-50 text-amber-700;
+}
